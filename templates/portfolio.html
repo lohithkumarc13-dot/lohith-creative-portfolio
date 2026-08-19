@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="portfolio-full">
+  <h1>My Work</h1>
+  <div class="filters">
+    {% for c in categories %}
+      <button class="filter-btn" data-filter="{{ c }}">{{ c }}</button>
+    {% endfor %}
+  </div>
+  <div class="projects-grid">
+    {% for p in projects %}
+      <div class="project-card" data-category="{{ p.category }}">
+        <img src="{{ p.image or '/static/images/placeholder.png' }}" alt="{{ p.title }}">
+        <div class="project-info">
+          <h4>{{ p.title }}</h4>
+          <p class="category">{{ p.category }}</p>
+          <p>{{ p.description }}</p>
+          <a href="/project/{{ p.id }}" class="btn">View Project</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

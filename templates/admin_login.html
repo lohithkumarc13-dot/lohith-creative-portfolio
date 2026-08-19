@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="admin-login">
+  <h2>Admin Login</h2>
+  <form method="post">
+    {{ csrf_token() }}
+    <input name="email" placeholder="Email" required>
+    <input name="password" type="password" placeholder="Password" required>
+    <button class="btn" type="submit">Login</button>
+  </form>
+</section>
+{% endblock %}

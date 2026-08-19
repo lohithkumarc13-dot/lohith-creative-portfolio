@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="admin-dashboard">
+  <h1>Admin Dashboard</h1>
+  <section class="panel">
+    <h2>Inquiries</h2>
+    <table class="inquiries">
+      <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Service</th><th>Message</th><th>Budget</th><th>Deadline</th><th>Status</th></tr></thead>
+      <tbody>
+        {% for i in inquiries %}
+          <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.service }}</td>
+            <td>{{ i.message }}</td>
+            <td>{{ i.budget }}</td>
+            <td>{{ i.deadline }}</td>
+            <td>
+              <form method="post" action="/admin/inquiry/{{ i.id }}/mark">
+                {{ csrf_token() }}
+                <select name="status"><option {% if i.status=='new' %}selected{% endif %}>new</option><option {% if i.status=='in-progress' %}selected{% endif %}>in-progress</option><option {% if i.status=='done' %}selected{% endif %}>done</option></select>
+                <button class="btn small">Update</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <h2>Projects</h2>
+    <form method="post" action="/admin/project/add">
+      {{ csrf_token() }}
+      <input name="title" placeholder="Title" required>
+      <input name="category" placeholder="Category" required>
+      <input name="image" placeholder="Image URL">
+      <input name="video" placeholder="Video URL">
+      <input name="project_url" placeholder="Project URL">
+      <textarea name="description" placeholder="Short description"></textarea>
+      <button class="btn" type="submit">Add Project</button>
+    </form>
+
+    <div class="projects-list">
+      {% for p in projects %}
+        <div class="project-row">
+          <img src="{{ p.image or '/static/images/placeholder.png' }}" alt="{{ p.title }}">
+          <div>
+            <h4>{{ p.title }}</h4>
+            <p>{{ p.category }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</section>
+{% endblock %}

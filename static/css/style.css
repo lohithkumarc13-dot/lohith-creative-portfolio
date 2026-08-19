@@ -1,0 +1,41 @@
+/* Basic dark futuristic styles and layout. This is a starting point. Customize as needed. */
+:root{
+  --bg:#05060a;
+  --card:#0e0f16;
+  --glass: rgba(255,255,255,0.03);
+  --accent1:#8b5cf6; /* neon purple */
+  --accent2:#06b6d4; /* cyan */
+  --text:#e6e6f0;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:linear-gradient(180deg,var(--bg),#040417);color:var(--text);}
+.navbar{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:18px 36px;background:transparent;backdrop-filter:blur(6px);z-index:40}
+.navbar .logo{font-weight:700;letter-spacing:1px}
+.nav-links{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--text);text-decoration:none;opacity:0.9}
+.btn{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#000;padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
+.btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+.hero{display:flex;gap:20px;padding:60px;min-height:70vh}
+.hero-left{flex:1;max-width:640px}
+.hero-left h1{font-size:44px;margin:0}
+.hero-left h2{margin:10px 0 18px;font-size:28px;color:var(--accent1)}
+.hero-right{flex:1;position:relative}
+#three-canvas{width:100%;height:420px;display:block;border-radius:18px}
+.services{padding:40px}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.service-card{background:var(--glass);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.project-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:10px;border-radius:12px;overflow:hidden}
+.project-card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+.contact{padding:40px}
+.contact-form input,.contact-form textarea{display:block;width:100%;padding:10px;margin-bottom:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+.site-footer{padding:30px;text-align:center;border-top:1px solid rgba(255,255,255,0.02)}
+/* Chat widget */
+.chat-widget{position:fixed;right:20px;bottom:20px;width:360px;max-width:calc(100% - 40px);background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,0.6);overflow:hidden}
+.chat-widget.closed{transform:translateY(110%);transition:transform .35s}
+.chat-widget .chat-header{padding:12px 14px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#000;display:flex;justify-content:space-between;align-items:center}
+.chat-body{padding:12px}
+.chat-body .message{background:rgba(255,255,255,0.03);padding:10px;border-radius:8px;margin-bottom:8px}
+.chat-body .quick-options button{margin:6px 6px 6px 0;padding:8px;border-radius:8px;border:none;background:rgba(255,255,255,0.03);color:var(--text);cursor:pointer}
+.chat-form input, .chat-form textarea{width:100%;padding:8px;margin:6px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+@media(max-width:768px){.hero{flex-direction:column;padding:20px}.nav-links{display:none}}

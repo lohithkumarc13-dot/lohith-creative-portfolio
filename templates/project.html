@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="project-detail">
+  <div class="project-media">
+    {% if project.video %}
+      <video controls src="{{ project.video }}" poster="{{ project.image }}" preload="none"></video>
+    {% else %}
+      <img src="{{ project.image or '/static/images/placeholder.png' }}" alt="{{ project.title }}">
+    {% endif %}
+  </div>
+  <div class="project-meta">
+    <h1>{{ project.title }}</h1>
+    <p class="category">{{ project.category }}</p>
+    <p>{{ project.description }}</p>
+    {% if project.project_url %}
+      <a href="{{ project.project_url }}" class="btn" target="_blank">Open Project</a>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

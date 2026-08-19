@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LOHITH — Creative Designer & Video Editor</title>
+    <meta name="description" content="Professional YouTube thumbnails, video editing, banners, logos and social media designs by LOHITH. View my portfolio and contact me directly.">
+    <link rel="icon" href="/static/images/favicon.png">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"></script>
+    <script defer src="/static/js/three-scene.js"></script>
+    <script defer src="/static/js/main.js"></script>
+    <script defer src="/static/js/chat.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">LOHITH</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="btn chat-open">LET'S TALK</button>
+    </nav>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="brand">LOHITH</div>
+      <div class="copy">© 2026 LOHITH. All Rights Reserved.</div>
+    </footer>
+
+    <!-- Chat widget -->
+    <div id="chat-widget" class="chat-widget closed">
+      <div class="chat-header">💬 Chat With Me <button class="chat-close">✕</button></div>
+      <div class="chat-body" id="chat-body">
+        <div class="message bot">Hey! 👋 Welcome to LOHITH Creative Studio.<br>What would you like help with?</div>
+        <div class="quick-options">
+          <button data-service="Thumbnail">🎨 Thumbnail Design</button>
+          <button data-service="Video Editing">🎬 Video Editing</button>
+          <button data-service="Banner">🖼️ YouTube Banner</button>
+          <button data-service="Logo">🔥 YouTube Logo</button>
+          <button data-service="Instagram">📱 Instagram Design</button>
+          <button data-service="Custom">💼 Custom Project</button>
+        </div>
+        <form id="chat-form">
+          <input name="name" placeholder="Your name" required>
+          <input name="email" type="email" placeholder="Email" required>
+          <input name="service" id="chat-service" placeholder="Service" required>
+          <textarea name="message" placeholder="Project details" required></textarea>
+          <input name="budget" placeholder="Budget (optional)">
+          <input name="deadline" placeholder="Deadline (optional)">
+          <button type="submit" class="btn">SEND PROJECT REQUEST</button>
+        </form>
+        <div id="chat-result" class="chat-result" aria-live="polite"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
